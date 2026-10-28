@@ -1,0 +1,17 @@
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+
+rules:
+  document-start: disable
+  empty-values:
+    forbid-in-block-mappings: false
+    forbid-in-flow-mappings: true
+  line-length:
+    max: 130
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+  truthy:
+    allowed-values: ['on', 'true', 'false']
+    level: warning
