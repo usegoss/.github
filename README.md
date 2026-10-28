@@ -1,4 +1,4 @@
-# Organization GitHub defaults
+# Goss GitHub defaults
 
 This public repository holds the GitHub files that apply across the Goss organization's repositories. It is not a template repository and it does not run CI for other repositories.
 
