@@ -1,0 +1,43 @@
+name: Story
+description: Define a user-valuable slice with clear acceptance criteria.
+title: "[Story]: "
+type: Story
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A story fits in one iteration and has testable acceptance criteria. Add
+        it under its epic when it is part of a larger outcome.
+
+        **Goss team members only.** Create the story in the repository that owns
+        the work. Not a team member? Email <support@usegoss.com> instead.
+        **Security problem?** Follow the
+        [security policy](https://github.com/usegoss/.github/blob/main/SECURITY.md).
+
+  - type: textarea
+    id: statement
+    attributes:
+      label: User story
+      description: As a [role], I want to [action], so that [benefit].
+      placeholder: As a [role], I want to [action], so that [benefit].
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Conditions that must be met for the story to be complete.
+      placeholder: |
+        - [ ] Given [context], when [action], then [result]
+        - [ ] Given [context], when [action], then [result]
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and notes
+      description: Technical notes, design links, dependencies, or anything else.
+    validations:
+      required: false

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/usegoss/.github/blob/main/SECURITY.md
+    about: Report security issues privately. Do not open a public issue.
+  - name: Product support or account help
+    url: https://github.com/usegoss/.github/blob/main/SUPPORT.md
+    about: Not a Goss team member? Email support@usegoss.com instead of opening an issue.
+  - name: Goss team members
+    url: https://github.com/usegoss
+    about: Open the issue in the repository that owns the surface. This repository holds organization defaults only.

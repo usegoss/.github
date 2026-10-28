@@ -1,0 +1,47 @@
+name: Validate org defaults
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # A venv keeps this working on runners whose system Python is externally
+      # managed (PEP 668), where a bare `pip install` is refused.
+      - name: Install yamllint
+        env:
+          YAMLLINT_VERSION: "1.38.0"
+        run: |
+          python3 -m venv "$RUNNER_TEMP/validate-venv"
+          "$RUNNER_TEMP/validate-venv/bin/pip" install --quiet \
+            "yamllint==${YAMLLINT_VERSION}"
+          echo "$RUNNER_TEMP/validate-venv/bin" >> "$GITHUB_PATH"
+
+      - name: Lint YAML
+        run: yamllint -c .yamllint.yml .
+
+      - name: Install actionlint
+        env:
+          VERSION: "1.7.7"
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/actionlint.tar.gz" \
+            "https://github.com/rhysd/actionlint/releases/download/v${VERSION}/actionlint_${VERSION}_linux_amd64.tar.gz"
+          tar -xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+
+      - name: Lint workflows
+        run: actionlint -color .github/workflows/*.yml

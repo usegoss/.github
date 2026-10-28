@@ -1,0 +1,52 @@
+name: Bug report
+description: Something is broken or behaves differently than intended.
+title: "[Bug]: "
+type: Bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Include enough detail to reproduce it.
+
+        **Goss team members only.** File this in the repository that owns the
+        surface. Not a team member? Email <support@usegoss.com> instead.
+        **Security problem?** Follow the
+        [security policy](https://github.com/usegoss/.github/blob/main/SECURITY.md).
+
+  - type: input
+    id: surface
+    attributes:
+      label: Where did this happen?
+      description: The app, site, service, or document, including version or device.
+      placeholder: iOS app, https://www.usegoss.com/reader, story import API
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you saw, and what you expected instead.
+      placeholder: Describe the actual and expected behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How can we reproduce it?
+      description: Steps, commands, links, or a minimal example.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Logs, screenshots, or anything else that helps.
+    validations:
+      required: false

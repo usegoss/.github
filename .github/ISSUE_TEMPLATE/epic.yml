@@ -1,0 +1,54 @@
+name: Epic
+description: Define a large body of work that contains multiple stories or tasks.
+title: "[Epic]: "
+type: Epic
+body:
+  - type: markdown
+    attributes:
+      value: |
+        An epic is the outcome, not the plan. Add stories and tasks as
+        sub-issues.
+
+        **Goss team members only.** Create the epic in the repository that owns
+        most of the work. Not a team member? Email <support@usegoss.com> instead.
+        **Security problem?** Follow the
+        [security policy](https://github.com/usegoss/.github/blob/main/SECURITY.md).
+
+  - type: input
+    id: goal
+    attributes:
+      label: Epic goal
+      description: The outcome this epic should achieve.
+      placeholder: A short, measurable goal.
+    validations:
+      required: true
+
+  - type: textarea
+    id: success
+    attributes:
+      label: How will we know it worked?
+      description: Metrics, user outcomes, or signals that show the goal was met.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and dependencies
+      description: The major work, constraints, and anything this epic depends on.
+      placeholder: |
+        - ...
+        - ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Definition of done
+      description: What must be true for this epic to be complete?
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: false
