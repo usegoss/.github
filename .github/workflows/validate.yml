@@ -14,7 +14,9 @@ concurrency:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    # Org defaults are linted on the same self-hosted pool as every other
+    # workflow; this job only needs python3 and actionlint.
+    runs-on: ${{ vars.PR_CI_RUNNER || 'cloudflare-sandbox' }}
     timeout-minutes: 10
     steps:
       - name: Checkout
